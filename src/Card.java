@@ -15,10 +15,10 @@ public class Card {
 
     public static final int HIGHEST_VALUE = 14;
 
-    char suit = "";
-    int value = 0;
-    Color color = 0;
-    boolean hasBeenFound = false;
+    char suit;
+    int value;
+    Color color;
+    boolean hasBeenFound;
 
 
 
@@ -51,7 +51,7 @@ public class Card {
     }
 
     public Color getColor(){
-        Color color = color.YELLOW;
+        Color color = Color.YELLOW;
 
         if(this.suit == 'c' || this.suit == 's'){
             color = Color.BLACK;
@@ -64,7 +64,6 @@ public class Card {
     }
 
     public boolean hasBeenFound(){
-        
         return  this.hasBeenFound;
     }
 
@@ -73,7 +72,7 @@ public class Card {
     }
 
     public boolean hasSameValue(Card other){
-        if (this.value.equals(other.value)){
+        if (this.value == other.value) {
             this.hasSameValue = true;
         } else {
             this.hasSameValue = false;
@@ -84,7 +83,7 @@ public class Card {
 
     public boolean hasSameValueAndColor(Card other){
         if (this.color.equals(other.color) && this.hasSameValue){
-            hasSameValueAndColor
+            hasSameValueAndColor = true;
         }
     }
 
