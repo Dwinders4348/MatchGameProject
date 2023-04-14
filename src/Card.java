@@ -1,4 +1,6 @@
 import java.awt.*;
+
+
 public class Card {
 
     //fields-------------
@@ -26,14 +28,14 @@ public class Card {
     
     //class constructor----------------------
 
-    public Card(char suit, int value){
+    public Card(char suit, int value) throws IllegalArgumentException {
         this.suit = suit;
         this.value = value;
 
         if(!(suit == 'c' || suit == 'h' || suit == 's' || suit == 'd')){
-            throw IllegalArgumentException("Invalid Suit");
+            throw new IllegalArgumentException("Invalid Suit");
         } else if (value > 14 || value < 2) {
-            throw IllegalArgumentException("Invalid Value");
+            throw new IllegalArgumentException("Invalid Value");
         }
 
     } 
@@ -72,27 +74,28 @@ public class Card {
     }
 
     public boolean hasSameValue(Card other){
-        if (this.value == other.value) {
-            this.hasSameValue = true;
-        } else {
-            this.hasSameValue = false;
-        }
+        // if (this.value == other.value) {
+        //     this.hasSameValue = true;
+        // } else {
+        //     this.hasSameValue = false;
+        // }
 
-        return this.hasSameValue;
+        return false;
     }
 
     public boolean hasSameValueAndColor(Card other){
-        if (this.color.equals(other.color) && this.hasSameValue){
-            hasSameValueAndColor = true;
-        }
+        // if (this.color.equals(other.color) && this.hasSameValue){
+        //     hasSameValueAndColor = true;
+        // }
+        return false;
     }
 
     public boolean equals(Object o) {
-
+        return true;
     }
 
     public String toString(){
-
+        return "";
     }
 
 }
