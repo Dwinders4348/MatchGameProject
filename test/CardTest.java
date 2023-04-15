@@ -94,7 +94,10 @@ public class CardTest {
     public void testGetValueTwoOfHearts() {
         assertEquals( 2, twoOfHearts.getValue(), "twoOfHearts value");
     }
-    // TODO: Test getValue for added Card. Test should be in its own method.
+
+    public void testGetValueThreeOfSpades() {
+        assertEquals( 3, threeOfSpades.getValue(), "threeOfSpades value");
+    }
 
 
     /**
@@ -105,6 +108,10 @@ public class CardTest {
         assertEquals(Color.RED, twoOfHearts.getColor(), "twoOfHearts color");
     }
     // TODO: Test getColor for added Card. Test should be in its own method.
+    @Test
+    public void testGetColorThreeOfSpades() {
+        assertEquals(Color.BLACK, threeOfSpades.getColor(), "threeOfSpades color");
+    }
 
     /**
      * Test toString() for two of hearts
