@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Card {
 
-    //fields-------------
+    //fields----------------------------
 
     public static final char CLUBS = 'c';
 
@@ -31,11 +31,12 @@ public class Card {
     public Card(char suit, int value) throws IllegalArgumentException {
         this.suit = suit;
         this.value = value;
+        this.color = getColor();
 
         if(!(suit == 'c' || suit == 'h' || suit == 's' || suit == 'd')){
-            throw new IllegalArgumentException("Invalid Suit");
+            throw new IllegalArgumentException("Invalid suit");
         } else if (value > 14 || value < 2) {
-            throw new IllegalArgumentException("Invalid Value");
+            throw new IllegalArgumentException("Invalid value");
         }
 
     } 
@@ -70,17 +71,20 @@ public class Card {
     }
 
     public void setHasBeenFound(boolean hasBeenFound){
+        this.hasBeenFound = hasBeenFound;
         
     }
 
     public boolean hasSameValue(Card other){
-        // if (this.value == other.value) {
-        //     this.hasSameValue = true;
-        // } else {
-        //     this.hasSameValue = false;
-        // }
+        boolean hasSameValue;
 
-        return false;
+        if (this.value == other.value) {
+            hasSameValue = true;
+        } else {
+            hasSameValue = false;
+        }
+
+        return hasSameValue;
     }
 
     public boolean hasSameValueAndColor(Card other){
@@ -89,17 +93,38 @@ public class Card {
         if (this.color.equals(other.color) && (this.value == other.value)) {
             hasSameValueAndColor = true;
         } else {
-            hasSameValueAndColor = true;
+            hasSameValueAndColor = false;
         }
         return hasSameValueAndColor;
     }
 
     public boolean equals(Object o) {
+        
+        if(!(o instanceof Card)){
+            return false;
+        }
+
+        Card c = (Card)o;
+        if(!(c.color.equals(this.color))){
+            return false;
+        }
+        
+        if(!(c.value == this.value)){
+            return false;
+        }
+        
         return true;
     }
 
     public String toString(){
-        return "";
+        
+        String value = "" + this.value;
+        String suit = "" + this.suit;
+
+        String card =  suit + value;
+        
+        
+        return card;
     }
 
 }

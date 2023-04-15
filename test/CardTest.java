@@ -16,7 +16,8 @@ public class CardTest {
     /** card two of hearts for testing */
     private Card twoOfHearts;
 
-    // TODO: Add another Card field
+    /** card three of spades for testing */
+    private Card threeOfSpades;
 
     /**
      * Create cards for testing
@@ -24,7 +25,8 @@ public class CardTest {
     @BeforeEach
     public void setUp() {
         twoOfHearts = new Card('h', 2);
-        // TODO: Construct added Card
+
+        threeOfSpades = new Card('s', 3);
     }
 
     /**
