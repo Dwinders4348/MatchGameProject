@@ -84,10 +84,14 @@ public class Card {
     }
 
     public boolean hasSameValueAndColor(Card other){
-        // if (this.color.equals(other.color) && this.hasSameValue){
-        //     hasSameValueAndColor = true;
-        // }
-        return false;
+        boolean hasSameValueAndColor;
+
+        if (this.color.equals(other.color) && (this.value == other.value)) {
+            hasSameValueAndColor = true;
+        } else {
+            hasSameValueAndColor = true;
+        }
+        return hasSameValueAndColor;
     }
 
     public boolean equals(Object o) {
