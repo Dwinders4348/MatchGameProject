@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests Deck class
  * @author Suzanne Balik
+ * @author Damion Winders
  */
 public class DeckTest {
     

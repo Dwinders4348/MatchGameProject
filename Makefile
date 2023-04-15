@@ -6,7 +6,7 @@ bin/Deck.class: src/Deck.java
 	javac -d bin -cp bin src/Deck.java
 
 bin/DeckTest.class: bin/Deck.class test/DeckTest.java
-	javac -d bin -cp "bin;lib/*" test/DeckTest.java
+	javac -d bin -cp bin src/Deck.java
 	
 	
 CardTest: bin/Card.class bin/CardTest.class

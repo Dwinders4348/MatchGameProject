@@ -37,7 +37,7 @@ public class Deck {
 
     //methods-----------------------------------------------
     public int getNext(){
-        return 0;
+        return this.next;
     }
 
     public Card[] getCards(){
