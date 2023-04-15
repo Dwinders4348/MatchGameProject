@@ -105,7 +105,7 @@ public class Card {
         }
 
         Card c = (Card)o;
-        if(!(c.color.equals(this.color))){
+        if(!(c.suit == this.suit)){
             return false;
         }
         

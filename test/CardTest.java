@@ -95,6 +95,10 @@ public class CardTest {
         assertEquals( 2, twoOfHearts.getValue(), "twoOfHearts value");
     }
 
+    /**
+     * Test getValue() for three of spades
+     */
+    @Test
     public void testGetValueThreeOfSpades() {
         assertEquals( 3, threeOfSpades.getValue(), "threeOfSpades value");
     }
@@ -107,7 +111,10 @@ public class CardTest {
     public void testGetColorTwoOfHearts() {
         assertEquals(Color.RED, twoOfHearts.getColor(), "twoOfHearts color");
     }
-    // TODO: Test getColor for added Card. Test should be in its own method.
+    
+    /**
+     * test getColor() for three of spades
+     */
     @Test
     public void testGetColorThreeOfSpades() {
         assertEquals(Color.BLACK, threeOfSpades.getColor(), "threeOfSpades color");
@@ -120,7 +127,14 @@ public class CardTest {
     public void testToStringTwoOfHearts() {
         assertEquals("h2", twoOfHearts.toString(), "twoOfHearts toString");
     }
-    // TODO: Test toString for added Card. Test should be in its own method.
+
+    /**
+     * Test toString() for three of spades
+     */
+    @Test
+    public void testToStringThreeOfSpades() {
+        assertEquals("s3", threeOfSpades.toString(), "threeOfSpades toString");
+    }
 
     /**
      * Test hasBeenFound() for two of hearts
@@ -129,8 +143,14 @@ public class CardTest {
     public void testHasBeenFoundTwoOfHearts() {
         assertFalse(twoOfHearts.hasBeenFound(), "twoOfHearts hasBeenFound");
     }
-    // TODO: Test hasBeenFound for added Card. Test should be in its own method.
-
+    
+    /**
+     * Test hasBeenFound() for three of spades
+     */
+    @Test
+    public void testHasBeenFoundThreeOfSpades(){
+        assertFalse(threeOfSpades.hasBeenFound(), "threeOfSpades hasBeenFound");
+    }
     /**
      * Test setHasBeenFound() for two of hearts
      */
@@ -141,7 +161,16 @@ public class CardTest {
         twoOfHearts.setHasBeenFound(false);
         assertFalse(twoOfHearts.hasBeenFound(), "twoOfHearts setHasBeenFound false");
     }
-    // TODO: Test setHasBeenFound for added Card. Test should be in its own method.
+    /**
+     * Test setHasBeenFound() for three of spades
+     */
+    @Test
+    public void testSetHasBeenFoundThreeOfSpades(){
+        threeOfSpades.setHasBeenFound(true);
+        assertTrue(threeOfSpades.hasBeenFound(), "threeOfSpades setHasBeenFound true");
+        threeOfSpades.setHasBeenFound(false);
+        assertFalse(threeOfSpades.hasBeenFound(), "threeOfSpades setHasBeenFound false");
+    }
 
     /**
      * Test hasSameValue() for two of hearts
@@ -151,7 +180,14 @@ public class CardTest {
         assertTrue(twoOfHearts.hasSameValue(new Card('c', 2)), "twoOfHearts has same value");
         assertFalse(twoOfHearts.hasSameValue(new Card('s', 3)), "twoOfHearts has different value");
     }
-    // TODO: Test hasSameValue for added Card. Test should be in its own method
+    /**
+     * test hasSameValue for three of spades
+     */
+    @Test
+    public void testHasSameValueThreeOfSpades() {
+        assertTrue(threeOfSpades.hasSameValue(new Card('d', 3)), "threeOfSpades has same value");
+        assertFalse(threeOfSpades.hasSameValue(new Card('c', 9)), "threeOfSpades has different value");
+    }
 
     /**
      * Test hasSameValueAndColor() for two of hearts
@@ -167,8 +203,21 @@ public class CardTest {
         assertFalse(twoOfHearts.hasSameValueAndColor(new Card('s', 2)), 
                     "twoOfHearts has same value and different color");
     }
-    // TODO: Test hasSameValueAndColor for added Card. Test should be in its own method
-
+    
+    /**
+     * test hasSameValueAndColor for three of spades
+     */
+    @Test
+    public void testHasSameValueAndColorThreeOfSpades(){
+        assertTrue(threeOfSpades.hasSameValueAndColor(new Card('c', 3)),
+        "twoOfHearts has same value and color");
+        assertFalse(threeOfSpades.hasSameValueAndColor(new Card('d', 4)),
+         "twoOfHearts has different value and color");
+        assertFalse(threeOfSpades.hasSameValueAndColor(new Card('c', 8)),
+         "twoOfHearts has different value and same color");
+         assertFalse(twoOfHearts.hasSameValueAndColor(new Card('h', 3)), 
+                     "twoOfHearts has same value and different color");
+    }
     /**
      * Test equals() for two of hearts
      */
@@ -184,7 +233,22 @@ public class CardTest {
         assertFalse(twoOfHearts.equals(null), "twoOfHearts compared to null object");
         assertFalse(twoOfHearts.equals("twoOfHearts"), "twoOfHearts compared to String");
     }
-    // TODO: Test equals for added Card. Test should be in its own method.
+    
+    /**
+     * Test equals() for three of spades
+     */
+    @Test
+    public void testEqualsThreeOfSpades() {
+        assertTrue(threeOfSpades.equals(threeOfSpades), "threeOfSpades equals with the same instance");
+        assertTrue(threeOfSpades.equals(new Card('s', 3)), "threeOfSpades equals with different instances");
+        
+        assertFalse(threeOfSpades.equals(new Card('s', 8)), "threeOfSpades with different value");
+        assertFalse(threeOfSpades.equals(new Card('c', 3)), "threeOfSpades with different suit");
+        assertFalse(threeOfSpades.equals(new Card('d', 6)), "threeOfSpades with different value and suit");
 
+        assertFalse(threeOfSpades.equals(null), "threeOfSpades compared to null object");
+        assertFalse(threeOfSpades.equals("threeOfSpades"), "threeOfSpades compared to String");
+    }
+   
 
 }
