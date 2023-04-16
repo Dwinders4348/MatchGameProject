@@ -9,20 +9,24 @@ public class Grid {
 
     //Constructor----------------------------------
     public Grid(int rows, int cols){
+        if(rows < 1 || cols < 1){
+            throw new IllegalArgumentException("Invalid rows/cols");
+        }
+
         cards = new Card[rows][cols];
     }
 
     //Methods-------------------------------------
     
     
-    public void setCard(int row, int col, Card card){
+    public void setCard(int row, int col, Card card){ 
         if(card == null) {
             throw new IllegalArgumentException("Null card");
         }
-        if(row < 0 || row >= this.rows){
+        if(row < 0 || row >= rows){
             throw new IllegalArgumentException("Invalid row");
         }
-        if(col < 0 || col >= this.cols){
+        if(col < 0 || col >= cols){
             throw new IllegalArgumentException("Invalid col");
         }
 
@@ -33,12 +37,28 @@ public class Grid {
 
 
     public Card getCard(int row, int col){
-        return (new Card('h', 2));
+        if(row < 0 || row >= this.rows){
+            throw new IllegalArgumentException("Invalid row");
+        }
+        if(col < 0 || col >= this.cols){
+            throw new IllegalArgumentException("Invalid col");
+        }
+        
+        return cards[row][col];
     }
 
     public String toString(){
-
-        return "";
+        
+        String grid = "";
+        
+        for (int i = 0; i < this.rows; i++){
+            for (int j = 0; j < this.cols; j++){
+                grid += " " + cards[i][j].toString();
+            }
+            grid += "\n";
+        }
+        
+        return grid;
     }
 
 
