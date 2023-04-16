@@ -13,6 +13,9 @@ public class Grid {
             throw new IllegalArgumentException("Invalid rows/cols");
         }
 
+        this.rows = rows;
+        this.cols = cols;
+
         cards = new Card[rows][cols];
     }
 
@@ -53,9 +56,15 @@ public class Grid {
         
         for (int i = 0; i < this.rows; i++){
             for (int j = 0; j < this.cols; j++){
-                grid += " " + cards[i][j].toString();
+                grid += cards[i][j].toString();
+                if(!(j+1 == this.cols)){
+                    grid += " ";
+                }
+
             }
-            grid += "\n";
+            if(!(i == this.rows)){
+                grid += " \n";
+            }
         }
         
         return grid;
