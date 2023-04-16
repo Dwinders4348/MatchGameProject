@@ -23,19 +23,19 @@ public class Deck {
 
         int index = 0; 
         
-        for(int i = 2; i < 14; i++) {
+        for(int i = 2; i < 15; i++) {
             cards[index] = new Card('c', i);
             index++;
         }
-        for(int i = 2; i < 14; i++) {
+        for(int i = 2; i < 15; i++) {
             cards[index] = new Card('d', i);
             index++;
         }
-        for(int i = 2; i < 14; i++) {
+        for(int i = 2; i < 15; i++) {
             cards[index] = new Card('h', i);
             index++;
         }
-        for(int i = 2; i < 14; i++) {
+        for(int i = 2; i < 15; i++) {
             cards[index] = new Card('s', i);
             index++;
         }
@@ -60,9 +60,9 @@ public class Deck {
         // swap a[i] with a random element among a[0],...,a[i]
         // (so if the chosen element is a[i], it stays put)
 
-        for (int i = CARDS_IN_DECK - 1; i >= 0; i--){
+        for (int i = CARDS_IN_DECK - 1; i > 0; i--){
             Random rand = new Random();
-            int num = rand.nextInt(51); 
+            int num = rand.nextInt(i + 1); 
             Card temp = cards[i];
             cards[i] = cards[num];
             cards[num] = temp;
@@ -103,13 +103,11 @@ public class Deck {
         String deck = ""; 
         
         
-        for (int i = 0; i < 52; i++){
+        for (int i = 0; i < CARDS_IN_DECK; i++) {
         //   String add = cards[i].toString();
-          deck += "Card " + i + " " + cards[i].toString() + "\n";
+          deck += "card " + i + ": " + cards[i].toString() + "\n";
 
         }
-
-        
         
         return deck;
     }
