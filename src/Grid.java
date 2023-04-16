@@ -55,15 +55,18 @@ public class Grid {
         String grid = "";
         
         for (int i = 0; i < this.rows; i++){
+
             for (int j = 0; j < this.cols; j++){
+
                 grid += cards[i][j].toString();
                 if(!(j+1 == this.cols)){
                     grid += " ";
                 }
 
             }
+            
             if(!(i == this.rows)){
-                grid += " \n";
+                grid += "\n";
             }
         }
         
