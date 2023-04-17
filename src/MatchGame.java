@@ -43,26 +43,72 @@ public class MatchGame {
      //Methods---------------------------------------
      public int getNumberOfGuesses() {
 
-        return 0;
+        return this.numberOfGuesses;
     }
 
-    public int getNumberOfCorretGuesses(){
-        return 0;
+    public int getNumberOfCorrectGuesses(){
+        
+        return this.numberOfCorrectGuesses;
     }
 
     public double getGuessAverage(){
-        return 0.0;
+        if (numberOfCorrectGuesses == 0){
+            return 0; 
+        } else {
+            return (double)(numberOfGuesses)/(numberOfCorrectGuesses);
+        }
+
+        
     }
 
     public String getCardName(int row, int col){
-        return "";
+        if(row < 0 || row >= ROWS){
+            throw new IllegalArgumentException("Invalid row");
+        }
+        if(col < 0 || col >= COLS){
+            throw new IllegalArgumentException("Invalid col");
+        }
+        
+        String cardName = "";
+
+        Card card = this.grid.getCard(row, col);
+
+        cardName = card.toString();
+        
+
+        return cardName;
     }
 
     public boolean hasBeenFound(int row, int col){
+        if(row >= ROWS || row < 0){
+            throw new IllegalArgumentException("Invalid row");
+        }
+        if(col < 0 || col >= COLS){
+            throw new IllegalArgumentException("Invalid col");
+        }
+      
+        if(hasBeenFound(row, col)){
+            return true;
+        }
+
         return false;
     }
 
-    public boolean isMatch(int card1Row, int card1Col, int card2Row, int Card2Col){
+    public boolean isMatch(int card1Row, int card1Col, int card2Row, int card2Col){
+        numberOfGuesses++;
+        if(card1Row < 0 || card1Row >= ROWS){
+            throw new IllegalArgumentException("Invalid card1Row");
+        }
+        if(card1Col < 0 || card1Col >= COLS){
+            throw new IllegalArgumentException("Invalid card1Col");
+        }
+        if(card2Row < 0 || card2Row >= ROWS){
+            throw new IllegalArgumentException("Invalid card2Row");
+        }
+        if(card2Col < 0 || card2Col >= COLS){
+            throw new IllegalArgumentException("Invalid card2Col");
+        }
+
         return false;
     }
 
@@ -73,7 +119,9 @@ public class MatchGame {
     public Grid getGrid(){
         return grid;
     }
+ 
 
+    
     
 }
 
