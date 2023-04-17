@@ -147,12 +147,80 @@ public class MatchGameTest {
                      "Easy game some correct guesses");
     }
 
-    // TODO: Add 5 tests: 
-    // test easy game play with no correct guesses
-    // test easy game play with all correct guesses
-    // test hard game play with no correct guesses
-    // test hard game play with some correct guesses
-    // test hard game play with all correct guesses
-    // Each test should be in its own method and call isMatch() at least 5 times
+    /**
+     * Test easy game with no correct guesses
+     * All have different values
+     */
+    @Test
+    public void testPlayEasyGame2(){
+        mgEasy.isMatch(2, 1, 2, 4); 
+        mgEasy.isMatch(3, 4, 2, 2);
+        mgEasy.isMatch(3, 6, 3, 3); 
+        mgEasy.isMatch(2, 1, 3, 2);
+        mgEasy.isMatch(3, 3, 2, 1);  
+        assertEquals(0.0, mgEasy.getGuessAverage(), EPSILON, 
+        "Easy game no correct guesses");
+    }
 
+    /**
+     * Test easy game with all correct guesses
+     */
+    @Test
+    public void testPlayEasyGame3(){
+        mgEasy.isMatch(2, 0, 3, 0);
+        mgEasy.isMatch(1, 6, 3, 6);  
+        mgEasy.isMatch(2, 3, 1, 3);
+        mgEasy.isMatch(3, 2, 1, 2);
+        mgEasy.isMatch(2, 5, 1, 5);  
+        assertEquals(1.0, mgEasy.getGuessAverage(), EPSILON, 
+        "Easy game all correct guesses");
+    }
+
+
+
+    /**
+     * Test hard game with no correct guesses
+     */
+    @Test
+    public void testPlayHardGame1(){
+        mgHard.isMatch(1, 3, 3, 0);
+        mgHard.isMatch(1, 2, 2, 4);
+        mgHard.isMatch(1, 2, 3, 2);
+        mgHard.isMatch(0, 2, 2, 10);
+        mgHard.isMatch(2, 9, 3, 6);
+        assertEquals(0.0, mgHard.getGuessAverage(), EPSILON, 
+        "Hard game no correct guesses");
+        
+    }
+
+    /**
+     * test hard game with some correct guesses
+     * 3/5 should be correct
+     */
+    @Test
+    public void testPlayHardGame2(){
+     mgHard.isMatch(1, 3, 2, 3); //Match
+     mgHard.isMatch(0, 0, 3, 0); //Match
+     mgHard.isMatch(1, 5, 2, 5); //Match
+     mgHard.isMatch(1, 3, 3, 4); //Does not match
+     mgHard.isMatch(1, 0, 3, 9); //Does not match
+     assertEquals(0.6, mgHard.getGuessAverage(), EPSILON, 
+     "Hard game some correct guesses");
+    
+    }
+
+    /**
+     * Test hard game with all correct guesses
+     */
+    @Test
+    public void testPlayHardGame3(){
+        mgHard.isMatch(1, 3, 2, 3);
+        mgHard.isMatch(0, 3, 3, 3);
+        mgHard.isMatch(1, 5, 2, 5);
+        mgHard.isMatch(3, 7, 0, 7);
+        mgHard.isMatch(2, 8, 1, 8);
+        assertEquals(1.0, mgHard.getGuessAverage(), EPSILON, 
+     "Hard game all correct guesses");
+
+    }
 }

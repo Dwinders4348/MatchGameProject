@@ -55,7 +55,7 @@ public class MatchGame {
         if (numberOfCorrectGuesses == 0){
             return 0; 
         } else {
-            return (double)(numberOfGuesses)/(numberOfCorrectGuesses);
+            return (double)(numberOfCorrectGuesses)/(numberOfGuesses);
         }
 
         
@@ -87,7 +87,7 @@ public class MatchGame {
             throw new IllegalArgumentException("Invalid col");
         }
       
-        if(hasBeenFound(row, col)){
+        if(this.grid.getCard(row, col).hasBeenFound()){
             return true;
         }
 
@@ -95,7 +95,7 @@ public class MatchGame {
     }
 
     public boolean isMatch(int card1Row, int card1Col, int card2Row, int card2Col){
-        numberOfGuesses++;
+        
         if(card1Row < 0 || card1Row >= ROWS){
             throw new IllegalArgumentException("Invalid card1Row");
         }
@@ -109,7 +109,34 @@ public class MatchGame {
             throw new IllegalArgumentException("Invalid card2Col");
         }
 
-        return false;
+        numberOfGuesses++;
+
+       
+        if(!grid.getCard(card1Row, card1Col).hasBeenFound() && !grid.getCard(card2Row, card2Col).hasBeenFound()) {
+
+            if(!isEasy){
+                if(grid.getCard(card1Row, card1Col).hasSameValueAndColor(grid.getCard(card2Row, card2Col))){
+                    Card card1 = grid.getCard(card1Row, card1Col);
+                    card1.hasBeenFound = true;
+                    Card card2 = grid.getCard(card2Row, card2Col);
+                    card2.hasBeenFound = true;
+                    numberOfCorrectGuesses++;
+                    return true;
+                }
+            }
+
+            if(isEasy && grid.getCard(card1Row, card1Col).hasSameValue(grid.getCard(card2Row, card2Col))) {
+                grid.getCard(card1Row, card1Col).hasBeenFound = true;
+                grid.getCard(card2Row, card2Col).hasBeenFound = true;
+                numberOfCorrectGuesses++;
+                return true;
+            }
+            
+         }
+        
+         return false;
+         
+
     }
 
     public Deck getDeck(){
