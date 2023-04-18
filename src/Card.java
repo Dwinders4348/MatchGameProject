@@ -1,6 +1,10 @@
 import java.awt.*;
 
-
+/**
+ * @author Damion Winders
+ * represents a single playing card
+ * in the Match game
+ */
 public class Card {
 
     //fields----------------------------
@@ -28,6 +32,13 @@ public class Card {
     
     //class constructor----------------------
 
+    /**
+     * 
+     * @param suit
+     * @param value
+     * @throws IllegalArgumentException
+     * 
+     */
     public Card(char suit, int value) throws IllegalArgumentException {
         this.suit = suit;
         this.value = value;
@@ -44,15 +55,30 @@ public class Card {
    
    //methods--------------------------
    
+    /**
+     * 
+     * @return character that represents
+     * a card's suit
+     */
     public char getSuit(){
         return this.suit;
         
     }
 
+    /**
+     * 
+     * @return an integer that represents
+     * a card's value
+     */
     public int getValue(){
         return this.value;
     }
 
+    /**
+     * 
+     * @return a color that is determined
+     * by the suit of the card
+     */
     public Color getColor(){
         Color color = Color.YELLOW;
 
@@ -66,15 +92,31 @@ public class Card {
         return color;
     }
 
+    /**
+     * 
+     * @return a boolean that represents whether
+     * a card has been found
+     */
     public boolean hasBeenFound(){
         return  this.hasBeenFound;
     }
 
+    /**
+     * 
+     * @param hasBeenFound
+     * sets the value of hasBeenFound boolean
+     */
     public void setHasBeenFound(boolean hasBeenFound){
         this.hasBeenFound = hasBeenFound;
         
     }
 
+    /**
+     * 
+     * @param other
+     * @return boolean that represents whether
+     * two cards have the same value
+     */
     public boolean hasSameValue(Card other){
         boolean hasSameValue;
 
@@ -87,6 +129,12 @@ public class Card {
         return hasSameValue;
     }
 
+    /**
+     * 
+     * @param other
+     * @return boolean that represents whether
+     * two cards have the same value and color 
+     */
     public boolean hasSameValueAndColor(Card other){
         boolean hasSameValueAndColor;
 
@@ -98,6 +146,10 @@ public class Card {
         return hasSameValueAndColor;
     }
 
+    /**
+     * @return boolean that represents whether
+     * two cards are equal to each other
+     */
     public boolean equals(Object o) {
         
         if(!(o instanceof Card)){
@@ -116,6 +168,10 @@ public class Card {
         return true;
     }
 
+    /**
+     * @returns string that represents
+     * the card's name
+     */
     public String toString(){
         
         String value = "" + this.value;

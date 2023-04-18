@@ -1,5 +1,9 @@
 import java.util.*;
 
+/**
+ * @author Damion Winders
+ * represents a deck of 52 cards
+ */
 public class Deck {
     
     //Constants-----------------------------
@@ -17,6 +21,9 @@ public class Deck {
 
     //Constructor----------------------------------------
    
+    /**
+     * Creates the deck object
+     */
     public Deck(){
         
          //Set cards array with cards
@@ -47,14 +54,28 @@ public class Deck {
 
 
     //methods-----------------------------------------------
+    
+    /**
+     * 
+     * @return integer that represents
+     * the next card
+     */
     public int getNext(){
         return this.next;
     }
 
+    /**
+     * 
+     * @return array of Card objects that represents
+     * the deck of cards
+     */
     public Card[] getCards(){
         return this.cards;
     }
 
+    /**
+     * shuffles the deck when called
+     */
     public void shuffle(){
         // for (i = n - 1; down to 1 do
         // swap a[i] with a random element among a[0],...,a[i]
@@ -72,6 +93,12 @@ public class Deck {
   
     }
 
+    /**
+     * 
+     * @return Card object that represents the next card
+     * to be used
+     * @throws IllegalStateException
+     */
     public Card nextCard() throws IllegalStateException {
         if(next >= CARDS_IN_DECK) {
             throw new IllegalStateException("No more cards");
@@ -80,6 +107,11 @@ public class Deck {
         return cards[next - 1];
     }
     
+    /**
+     * @param o
+     * @return boolean that represents whether 
+     * two decks are equal
+     */
     public boolean equals(Object o){
         
         Deck d;
@@ -99,6 +131,10 @@ public class Deck {
         return true;
     }
 
+    /**
+     * @return string that represents 
+     * the cards in a deck
+     */
     public String toString(){
         String deck = ""; 
         

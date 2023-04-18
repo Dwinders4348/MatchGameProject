@@ -85,8 +85,14 @@ public class CardTest {
     public void testGetSuitTwoOfHearts() {
         assertEquals('h', twoOfHearts.getSuit(), "twoOfHearts suit");
     }
-    // TODO: Test getSuit for added Card. Test should be in its own method.
-
+   
+    /**
+     * Test getSuit() for three of spades
+     */
+    @Test
+    public void testGetSuitThreeOfSpades(){
+        assertEquals('s', threeOfSpades.getSuit(), "threeOfSpades suit");
+    }
     /**
      * Test getValue() for two of hearts
      */

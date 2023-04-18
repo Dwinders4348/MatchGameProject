@@ -1,3 +1,7 @@
+/**
+ * @author Damion Winders
+ * Handles logic behind Match game
+ */
 public class MatchGame {
 
     public static final int ROWS = 4; 
@@ -17,6 +21,15 @@ public class MatchGame {
     private boolean isEasy;
 
     //Constructor-----------------------------------------
+   
+    /**
+     * Stores value of isEasy and 
+     * shuffles the deck if necessary
+     * creates a grid to distribute cards
+     * @param isTesting
+     * @param isEasy
+     * 
+     */
     public MatchGame(boolean isTesting, boolean isEasy){
 
         this.isEasy = isEasy;
@@ -40,17 +53,33 @@ public class MatchGame {
 
 
 
-     //Methods---------------------------------------
-     public int getNumberOfGuesses() {
+    //Methods---------------------------------------
+     
+     
+    /**
+     * @return an integer that 
+     * represents the number of 
+     * guesses made by the user
+     */
+    public int getNumberOfGuesses() {
 
         return this.numberOfGuesses;
     }
 
+    /**
+     * @return an integer that represents the 
+     * number of correct guesses made by the user
+     */
     public int getNumberOfCorrectGuesses(){
         
         return this.numberOfCorrectGuesses;
     }
 
+    /**
+     * 
+     * @return a double that represents the ratio of correct 
+     * guesses to the number of total guesses
+     */
     public double getGuessAverage(){
         if (numberOfCorrectGuesses == 0){
             return 0; 
@@ -60,7 +89,13 @@ public class MatchGame {
 
         
     }
-
+    /**
+     * 
+     * @param row
+     * @param col
+     * @return a string that represents the name of the card
+     * at the location given by the parameters row and col
+     */
     public String getCardName(int row, int col){
         if(row < 0 || row >= ROWS){
             throw new IllegalArgumentException("Invalid row");
@@ -79,6 +114,14 @@ public class MatchGame {
         return cardName;
     }
 
+    /**
+     * 
+     * @param row
+     * @param col
+     * @return a boolean that represents whether 
+     * the card has at the given row and col
+     * has been found by the user 
+     */
     public boolean hasBeenFound(int row, int col){
         if(row >= ROWS || row < 0){
             throw new IllegalArgumentException("Invalid row");
@@ -94,6 +137,16 @@ public class MatchGame {
         return false;
     }
 
+    /**
+     * 
+     * @param card1Row
+     * @param card1Col
+     * @param card2Row
+     * @param card2Col
+     * @return a boolean that represents whether
+     * the two cards given by the coordinates in the
+     * parameter match, based off of the game's definition
+     */
     public boolean isMatch(int card1Row, int card1Col, int card2Row, int card2Col){
         
         if(card1Row < 0 || card1Row >= ROWS){
@@ -139,10 +192,18 @@ public class MatchGame {
 
     }
 
+    /**
+     * 
+     * @return the Deck object
+     */
     public Deck getDeck(){
         return deck;
     }
 
+    /**
+     * 
+     * @return the Grid object
+     */
     public Grid getGrid(){
         return grid;
     }
